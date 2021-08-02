@@ -1,0 +1,39 @@
+version: "2.0"
+
+stories:
+
+- story: confirm appointment
+  steps:
+  - intent: appointment_reminder
+  - action: utter_appointment_reminder
+  - intent: confirm
+  - action: utter_confirm
+
+- story: cancel appointment
+  steps:
+  - intent: appointment_reminder
+  - action: utter_appointment_reminder
+  - intent: cancel
+  - action: utter_before_cancel_no_travel
+  - intent: cancel
+  - action: utter_cancel
+
+- story: cancel appointment2
+  steps:
+  - intent: appointment_reminder
+  - action: utter_appointment_reminder
+  - intent: cancel
+  - action: utter_before_cancel_no_travel
+  - intent: reschedule
+  - action: utter_reschedule_slots
+  - intent: slot
+  - action: utter_reschedule_selection
+
+- story: reschedule appointment
+  steps:
+  - intent: appointment_reminder
+  - action: utter_appointment_reminder
+  - intent: reschedule
+  - action: utter_reschedule_slots
+  - intent: slot
+  - action: utter_reschedule_selection  

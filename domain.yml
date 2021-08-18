@@ -1,68 +1,68 @@
-version: "2.0"
-
-intents:
-  - greet
-  - goodbye
-  - bot_challenge
-  - confirm
-  - cancel
-  - reschedule
-  - help
-  - callme
-  - pause
-  - appointment_reminder
-  - slot
-
-responses:
-  utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
-  utter_goodbye:
-  - text: "Bye"
-
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-  utter_confirm:
-  - text: "Your appointment is confirmed."
-
-  utter_appointment_reminder_today:
-  - text: "You have an appointment today."
-
-  utter_before_cancel_no_travel:
-  - text: "Before we cancel your appointment, to see next available times, reply RESCHEDULE. To cancel, reply NO. For help reply HELP."
-
-  utter_cancel:
-  - text: "Okay, we cancelled your appointment. To reschedule, call 800-123-4567."
-
-  utter_help:
-  - text: "Contact service options. http://bit.ly/2KXjkLX. For assistance call 800-123-7891. To request a callback, reply CALL ME."
-
-  utter_call_me:
-  - text: "To send a message with the callback request, reply with your question or NONE to leave blank."
-
-  utter_confirm_call_me:
-  - text: "Okay, we sent your request for a call back. A case representative will contact you shortly."
-
-  utter_appointment_reminder:
-          - text: "Amrita, You have an appointment at South Primary Care Clinic Friday, July 30th at 9:00am. To confirm, reply YES. To cancel, reply NO. To reschedule, reply RESCHEDULE."
-
-  utter_reschedule_slots:
-  - text: "Which of these appointments would you like to reschedule to? Reply with the number: (1) 8/05 @9:00am (2) 8/07 @1:00pm (3) 8/08 @4:00pm. For more availability: http://bit.ly/2KXjkLX"
-
-  utter_reschedule_selection:
-  - text: "Your appointment at South Primary Care Clinic has been rescheduled to 8/07 @1:00pm."
-
+version: '2.0'
+config:
+  store_entities_as_slots: true
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- confirm:
+    use_entities: true
+- cancel:
+    use_entities: true
+- reschedule:
+    use_entities: true
+- help:
+    use_entities: true
+- callme:
+    use_entities: true
+- pause:
+    use_entities: true
+- appointment_reminder:
+    use_entities: true
+- slot:
+    use_entities: true
+entities: []
+slots: {}
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+  utter_confirm:
+  - text: Your appointment is confirmed.
+  utter_appointment_reminder_today:
+  - text: You have an appointment today.
+  utter_before_cancel_no_travel:
+  - text: Before we cancel your appointment, to see next available times, reply RESCHEDULE. To cancel, reply NO. For help reply HELP.
+  utter_cancel:
+  - text: Okay, we cancelled your appointment. To reschedule, call 800-123-4567.
+  utter_help:
+  - text: Contact service options. http://bit.ly/2KXjkLX. For assistance call 800-123-7891. To request a callback, reply CALL ME.
+  utter_call_me:
+  - text: To send a message with the callback request, reply with your question or NONE to leave blank.
+  utter_confirm_call_me:
+  - text: Okay, we sent your request for a call back. A case representative will contact you shortly.
+  utter_appointment_reminder:
+  - text: John, You have an appointment at South Primary Care Clinic Saturday, August 21st at 9:00am. To confirm, reply YES. To cancel, reply NO. To reschedule, reply RESCHEDULE.
+  utter_reschedule_slots:
+  - text: 'Which of these appointments would you like to reschedule to? Reply with the number: (1) 9/05 @9:00am (2) 9/07 @1:00pm (3) 9/08 @4:00pm. For more availability: http://bit.ly/2KXjkLX'
+  utter_reschedule_selection:
+  - text: Your appointment at South Primary Care Clinic has been rescheduled to 9/07 @1:00pm.
+actions: []
+forms: {}
+e2e_actions: []
